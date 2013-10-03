@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
    <head>
-    <title>Test de base_line pour : | <%= @titre %></title>
+    <title><%= titre %></title>
     <%= csrf_meta_tag %>
+    <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
+    <%= stylesheet_link_tag 'blueprint/print', :media => 'print' %>
   </head>
   <body>
     <%= yield %>

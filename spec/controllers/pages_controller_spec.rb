@@ -4,7 +4,7 @@ describe PagesController do
   render_views
 
   before(:each) do
-    @base_line = "Test de base_line pour :"
+    @base_line = "Default title :"
   end
 
   describe "GET 'home'" do
