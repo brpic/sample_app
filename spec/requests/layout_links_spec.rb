@@ -5,7 +5,7 @@ require 'spec_helper'
       get '/'
       response.should have_selector('title', :content => "Accueil")
     end
-    
+
     it "should find about page at /about" do
       get '/about'
       response.should have_selector('title', :content => "About")
@@ -25,5 +25,18 @@ require 'spec_helper'
       get '/signup'
       response.should have_selector('title', :content => "Inscription")
     end
-    
+
+    it "should be have the right link in the layout" do
+      visit root_path
+      click_link "About"
+      response.should have_selector('title', :content => "About")
+      click_link "Aide"
+      response.should have_selector('title', :content => "Help")
+      click_link "Contact"
+      response.should have_selector('title', :content => "Contact")
+      click_link "Accueil"
+      response.should have_selector('title', :content => "Accueil")
+      click_link "Inscription"
+      response.should have_selector('title', :content => "Inscription")
+    end
 end
