@@ -5,8 +5,23 @@
     <%= csrf_meta_tag %>
     <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
     <%= stylesheet_link_tag 'blueprint/print', :media => 'print' %>
+    <%= stylesheet_link_tag 'blueprint/custom', :media => 'screen' %>
   </head>
   <body>
-    <%= yield %>
+    < div class="container">
+      <header>
+        <%= image_tag("logo.png, :alt => "Application exemple", :class => "round") %>
+        <nav class="round">
+          <ul>
+            <li><%= link_to "Accueil", '#' %></li>
+            <li><%= link_to "Aide", '#' %></li>
+            <li><%= link_to "Inscription", '#' %></li>
+          </ul>
+        </nav>
+      </header>
+      <section class = "round">
+        <%= yield %>
+      </section>
+    </div>
   </body>
 </html>
