@@ -45,7 +45,6 @@ a:visited {
 /* Navigation */
 
 nav {
-<<<<<<< HEAD
   float: right;
 }
 
@@ -77,8 +76,7 @@ nav ul li a:visited {
 
 nav ul li a:hover {
   text-decoration: none;
-=======
-    float: right;
+  float: right;
 }
 
 nav {
@@ -109,13 +107,11 @@ nav ul li a:visited {
 
 nav ul li a:hover {
   text-decoration: underline;
->>>>>>> filling_in_layout
 }
 
 /* Bouton inscription */
 
 a.signup_button {
-<<<<<<< HEAD
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -126,28 +122,11 @@ a.signup_button {
   font-size: 150%;
   font-weight: bold;
   padding: 20px;
-=======
- margin-left: auto;
- margin-right: auto;
- display: block;
- text-align: center;
- width: 190px;
- color: #fff;
- background: #006400;
- font-size: 150%;
- font-weight: bold;
- padding: 20px;
->>>>>>> filling_in_layout
 }
 
 /* Coins arrondis */
 
 .round {
-<<<<<<< HEAD
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-=======
  -moz-border-radius:    10px;
  -webkit-border-radius: 10px;
  border-radius:         10px;
@@ -165,6 +144,5 @@ footer {
 
 footer nav {
   float: none;
->>>>>>> filling_in_layout
 }
 
