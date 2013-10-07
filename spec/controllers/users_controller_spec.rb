@@ -9,7 +9,7 @@ describe UsersController do
       response.should be_success
     end
 
-    it "should have title : inscription" do
+    it "should have the right title" do
       get 'new'
       response.should have_selector('title', :content => "Inscription")
     end
