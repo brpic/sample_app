@@ -1,3 +1,4 @@
+require 'digest'
 class User < ActiveRecord::Base
   attr_accessor :password
 #  attr_accessible :nom, :email, :password, :password_confirmation
@@ -14,16 +15,31 @@ class User < ActiveRecord::Base
 
   #Retourne vrai si le mot de passe correspond
   def has_password?(password_soumis)
-    #Compare encrypted_password avec la version cryptée de password_soumis
+    encrypted_password == encrypt(password_soumis)
+  end
+
+  def self.authenticate(email, submitted_password)
+    user = find_by_email(email)
+    return nil if user.nil?
+    return user if user.has_password?(submitted_password)
   end
 
   private
 
     def encrypt_password
+      self.salt = make_salt if new_record?
       self.encrypted_password = encrypt(password)
     end
 
     def encrypt(string)
-      string #implémentation provisoire
+      secure_hash("#{salt}--#{string}")
+    end
+
+    def make_salt
+      secure_hash("#{Time.now.utc}--#{password}")
+    end
+
+    def secure_hash(string)
+      Digest::SHA2.hexdigest(string)
     end
 end

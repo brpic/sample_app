@@ -48,6 +48,24 @@ describe User do
     it "should define an encrypted password" do
       @user.encrypted_password.should_not be_blank
     end
+
+    describe "authenticate method" do
+
+      it "should return nil if mail/pass don't match" do
+        wrong_password_user = User.authenticate(@attr[:email], "wrongpass")
+        wrong_password_user.should be_nil
+      end
+
+      it "should return nil if an email doesn't exist" do
+        nonexistent_user = User.authenticate("bar@foo.com", @attr[:password])
+        nonexistent_user.should be_nil
+      end
+
+      it "should return user and email " do
+        matching_user = User.authenticate(@attr[:email], @attr[:password])
+        matching_user.should == @user
+      end
+    end
   end
 
   describe "cryptage password" do
